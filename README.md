@@ -1,5 +1,8 @@
 # SOC Lab: Wazuh SIEM, pfSense Firewall & Incident Response
 
+[![CI](https://github.com/ameemakhtr/SOC-Wazuh-pfSense-IR-Lab/actions/workflows/ci.yml/badge.svg)](https://github.com/ameemakhtr/SOC-Wazuh-pfSense-IR-Lab/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 Hands-on Blue Team SOC engineering and incident response lab portfolio covering SIEM deployment, FIM alert-fatigue tuning, pfSense Syslog integration, perimeter malware containment, **NIST SP 800-61 Rev. 2** response workflows, and isolated ransomware behavioral triage.
 
 > **Author:** Ameem Akhtar  
