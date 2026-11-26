@@ -1,0 +1,22 @@
+<!-- Sanitized Wazuh configuration snippets for SOC Lab (Syslog + FIM Noise Tuning) -->
+<wazuh_lab_config>
+  <!-- Wazuh Manager (/var/ossec/etc/ossec.conf): Syslog UDP 514 ingestion from pfSense LAN -->
+  <remote>
+    <connection>syslog</connection>
+    <port>514</port>
+    <protocol>udp</protocol>
+    <allowed-ips>192.168.1.1/32</allowed-ips>
+    <local_ip>192.168.1.10</local_ip>
+  </remote>
+
+  <!-- Windows Endpoint Agent: File Integrity Monitoring with noise-reduction regex -->
+  <syscheck>
+    <disabled>no</disabled>
+    <frequency>43200</frequency>
+    <directories check_all="yes" realtime="yes">C:\Users\User\Desktop\FIM_Test</directories>
+
+    <!-- Mitigate alert fatigue by excluding volatile temporary and log files -->
+    <ignore type="PCRE2">\.tmp$</ignore>
+    <ignore type="PCRE2">\.log$</ignore>
+  </syscheck>
+</wazuh_lab_config>
