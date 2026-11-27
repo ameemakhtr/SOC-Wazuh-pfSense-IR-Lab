@@ -42,10 +42,10 @@ Default SIEM and firewall deployments generate noisy File Integrity Monitoring (
 
 ## Repository Contents
 
-* [`configs/wazuh/ossec-fim-syslog.xml`](./configs/wazuh/ossec-fim-syslog.xml) — Validated Wazuh Syslog (`UDP 514`) and Agent FIM regex-exclusion config snippets.
+* **Lab Modules & Playbooks:** [`labs/01`](./labs/01-wazuh-siem-fim/README.md) through [`labs/04`](./labs/04-wannacry-behavioral-triage/README.md) — Documented Wazuh, pfSense, NIST SP 800-61 IR, and WannaCry VM analysis labs.
+* [`configs/wazuh/ossec-fim-syslog.xml`](./configs/wazuh/ossec-fim-syslog.xml) — Wazuh Syslog (`UDP 514`) and Agent FIM regex-exclusion config snippets.
 * [`configs/wazuh/local-rules-pfsense.xml`](./configs/wazuh/local-rules-pfsense.xml) — Custom Wazuh correlation rules (`100901`, `100903`) for pfSense `filterlog` blocks.
-* [`scripts/validate_soc_lab.py`](./scripts/validate_soc_lab.py) — Python validator checking XML integrity, FIM regex suppression, and rule correlation.
-* [`tests/test_validate_soc_lab.py`](./tests/test_validate_soc_lab.py) — Automated unit test suite.
+* **Supporting Verification Utility:** [`scripts/validate_soc_lab.py`](./scripts/validate_soc_lab.py) & [`tests/test_validate_soc_lab.py`](./tests/test_validate_soc_lab.py) — Offline helper scripts validating XML syntax, FIM regex patterns, and sample rule matching in CI.
 
 ---
 
