@@ -10,6 +10,12 @@ Hands-on Blue Team SOC engineering and incident response lab portfolio covering 
 
 ---
 
+## Problem Statement & Objective
+
+Default SIEM and firewall deployments generate noisy File Integrity Monitoring (FIM) alerts from temporary OS/application writes while leaving perimeter block logs disconnected from endpoint visibility. This lab builds an integrated **SOC telemetry pipeline** pairing Wazuh SIEM with pfSense Syslog ingestion, `PCRE2` FIM noise filtering, automated correlation rules, and repeatable NIST SP 800-61 containment playbooks—verified offline by an automated XML and rule-matching validator.
+
+---
+
 ## Architecture Overview
 
 ```text
@@ -52,6 +58,15 @@ python scripts/validate_soc_lab.py
 # Run unit tests
 python -m unittest discover -s tests -v
 ```
+
+---
+
+## Results & Key Conclusions
+
+* **Noise Suppression Verified:** PCRE2 `<ignore>` rules suppressed benign `.tmp` and `.log` filesystem writes while preserving real-time Rule `553` alerts on actual file deletions.
+* **Perimeter-to-SIEM Visibility:** Routing pfSense `filterlog` telemetry over UDP `514` enabled real-time correlation (`Rule 100903`, Level `12`) against simulated EICAR egress blocks alongside GeoIP (`pfBlockerNG`) and `DNSBL` (`10.10.10.1`) controls.
+* **Ransomware Forensics Grounding:** Isolated WannaCry execution mapped child-process spawning (`tasksche.exe`, `@WanaDecryptor@.exe`), `.WNCRYT` encryption, Run-key persistence, Tor proxy connections (`127.0.0.1:9050`), and volatile RAM capture (`DumpIt`), confirming `MS17-010` patching and SMBv1 removal as core remediations.
+* **Automated Config Integrity:** `validate_soc_lab.py` and 3 unit tests validate all XML snippets and correlation rules cleanly in GitHub Actions CI.
 
 ---
 
