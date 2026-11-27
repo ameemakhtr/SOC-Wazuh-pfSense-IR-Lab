@@ -37,12 +37,13 @@ Default SIEM and firewall deployments generate noisy File Integrity Monitoring (
 | **[Lab 02](./labs/02-pfsense-syslog-controls/README.md)** | pfSense CE & Syslog Integration | pfSense `2.8.1`, Syslog UDP `514` (`tcpdump` verified), `pfBlockerNG` MaxMind GeoIP Deny, `DNSBL` sinkhole (`10.10.10.1`), Admin-only WebGUI ACL |
 | **[Lab 03](./labs/03-active-defense-nist-ir/README.md)** | Active Defense & NIST IR | EICAR edge block alias, custom Wazuh `filterlog` Rule `100903` (Level `12`), **NIST SP 800-61 Rev. 2** IR playbook |
 | **[Lab 04](./labs/04-wannacry-behavioral-triage/README.md)** | WannaCry Behavioral Triage | Host-only VMware isolation, **IDA**, **Process Explorer**, **Procmon64**, **Regshot**, **FakeNet-NG** (Tor `127.0.0.1:9050`), **DumpIt** RAM acquisition |
+| **[Lab 05](./labs/05-breach-intel-zero-trust/README.md)** | 2024–2026 Breach Intelligence | Ransomware & supply-chain breach synthesis advocating **Zero Trust Architecture**, **ITDR**, vendor risk governance, and OT/IT isolation |
 
 ---
 
 ## Repository Contents
 
-* **Lab Modules & Playbooks:** [`labs/01`](./labs/01-wazuh-siem-fim/README.md) through [`labs/04`](./labs/04-wannacry-behavioral-triage/README.md) — Documented Wazuh, pfSense, NIST SP 800-61 IR, and WannaCry VM analysis labs.
+* **Lab Modules & Playbooks:** [`labs/01`](./labs/01-wazuh-siem-fim/README.md) through [`labs/05`](./labs/05-breach-intel-zero-trust/README.md) — Documented Wazuh, pfSense, NIST SP 800-61 IR, WannaCry VM analysis, and breach-intelligence labs.
 * [`configs/wazuh/ossec-fim-syslog.xml`](./configs/wazuh/ossec-fim-syslog.xml) — Wazuh Syslog (`UDP 514`) and Agent FIM regex-exclusion config snippets.
 * [`configs/wazuh/local-rules-pfsense.xml`](./configs/wazuh/local-rules-pfsense.xml) — Custom Wazuh correlation rules (`100901`, `100903`) for pfSense `filterlog` blocks.
 * **Supporting Verification Utility:** [`scripts/validate_soc_lab.py`](./scripts/validate_soc_lab.py) & [`tests/test_validate_soc_lab.py`](./tests/test_validate_soc_lab.py) — Offline helper scripts validating XML syntax, FIM regex patterns, and sample rule matching in CI.
